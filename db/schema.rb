@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105165230) do
+ActiveRecord::Schema.define(version: 20161105191930) do
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.text     "tel",        limit: 65535
+    t.text     "image",      limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -33,6 +41,7 @@ ActiveRecord::Schema.define(version: 20161105165230) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "nickname",               limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
