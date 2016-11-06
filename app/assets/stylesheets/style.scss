@@ -226,12 +226,12 @@ div.contents.row {
   div.content_post {
     @include boxBase(20px 0 ,30px);
     position: relative;
-    height: 400px;
+    height: 200px;
     color: #fff;
     background-size: cover;
     background-position: center center;
     border-radius: 3px;
-    box-shadow: 0 0 10px rgba($black,0.2);
+    box-shadow: 0 0 10px rgba($black,0.5);
     &:after {
       content: '';
       position: absolute;
@@ -303,10 +303,10 @@ div.contents.row {
       font-size: 13px;
       a {
         display: block;
-        color: #aaa;
+        color: #F0FFF0;
         &:hover {
           text-decoration: underline;
-          color: #aaa;
+          color: #F0FFF0;
         }
       }
       span {

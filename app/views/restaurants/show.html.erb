@@ -1,0 +1,30 @@
+<div class ="contents row">
+  <div class="content_post" style="background-image: url(<%= @restaurant.image %>);">
+
+    <%= simple_format(@restaurant.name) %>
+    <span class="name">
+    </span>
+
+  </div>
+
+    <div class="container">
+    <% if current_user %>
+      <%= form_tag("/restaurants/#{@restaurant.id}/reviews", method: :post) do %>
+        <textarea cols="30" name="text" placeholder="" rows="2"></textarea>
+        <input type="submit" value="SENT">
+      <% end %>
+    <% end %>
+<!-- ここから追記してください -->
+    <div class="comments">   
+      <h4>＜reviewの一覧＞</h4>
+      <% if @reviews %>
+        <% @reviews.each do |review| %>
+          <p>
+            <strong><%= link_to '飛ぶ', "/users/#{review.user_id}" %>：</strong>
+            <%= review.text %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

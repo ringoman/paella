@@ -1,7 +1,11 @@
 <div class="contents row">
 <% @a.each do |b| %>
   <div class="content_post" style="background-image: url(<%= b.image %>);">
-  <%= simple_format(b.name) %>
+ 
+  <span class="name">
+  <%= link_to "#{b.name}", "/restaurants/#{b.id}" , method: :get %>
+  </span>
   </div>
   <% end %>
+  <%= paginate(@a) %>
 </div>
