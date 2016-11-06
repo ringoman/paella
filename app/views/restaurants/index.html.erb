@@ -3,8 +3,13 @@
   <div class="content_post" style="background-image: url(<%= b.image %>);">
  
   <span class="name">
-  <%= link_to "#{b.name}", "/restaurants/#{b.id}" , method: :get %>
+  <% if Hotpepper.search(b.name).length != 0 %>
+  <a href=<%=Hotpepper.search(b.name)%>}> ホットペッパー</a>
+  <% end %>
   </span>
+  <p>
+  <%= link_to "#{b.name}", "/restaurants/#{b.id}" , method: :get %>
+  </p>
   </div>
   <% end %>
   <%= paginate(@a) %>
