@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'restaurants' => 'restaurants#index'
   get 'restaurants/:id' => 'restaurants#show'
   resources :restaurants do
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create,:edit]
   end
-
+  delete 'reviews/:id' => 'reviews#destroy'
+  get 'reviews/:id/edit' => 'reviews#edit'
+  patch 'reviews/:id' => 'reviews#update'
 end

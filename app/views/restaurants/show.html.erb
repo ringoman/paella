@@ -20,8 +20,12 @@
       <% if @reviews %>
         <% @reviews.each do |review| %>
           <p>
-            <strong><%= link_to '飛ぶ', "/users/#{review.user_id}" %>：</strong>
-            <%= review.text %>
+            <strong><%= link_to review.user.nickname, "/users/#{review.user_id}" %>：</strong>
+            <% if user_signed_in? && current_user.id == review.user_id %>
+            <%= link_to '編集する', "/reviews/#{review.id}/edit",method: :get %>
+              <%= link_to '削除する', "/reviews/#{review.id}",method: :delete %>
+            <% end %>
+            <%= simple_format(review.text) %>
           </p>
         <% end %>
       <% end %>
